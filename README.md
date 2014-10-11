@@ -1,4 +1,4 @@
 RxNA
 ====
 
-Reactive programming extensions for XNA/Monogame in F#
+Example game using reactive extensions with XNA/Monogame in F#
