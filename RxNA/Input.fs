@@ -27,7 +27,7 @@ let private downStream (stream:IObservable<'T []>) =
         (fun (prev, curr) ->
             curr.Except prev
             |> Observable.ToObservable)
-    |> Observable.Switch
+    |> Observable.Merge
 
 let private upStream (stream:IObservable<'T []>) =
     stream
@@ -36,12 +36,12 @@ let private upStream (stream:IObservable<'T []>) =
         (fun (prev, curr) ->
             prev.Except curr
             |> Observable.ToObservable)
-    |> Observable.Switch
+    |> Observable.Merge
 
 let private heldStream (stream:IObservable<'T []>) =
     stream
     |> Observable.map Observable.ToObservable
-    |> Observable.Switch
+    |> Observable.Merge
 
 let keyboardStateStream =
     new Subject<KeyboardState>()
@@ -55,6 +55,3 @@ let keyDownStream = downStream keysPressedStream
 let keyUpStream = upStream keysPressedStream
 
 let keyHeldStream = heldStream keysPressedStream
-
-
-
