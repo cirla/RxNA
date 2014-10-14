@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "RxNA", "RxNA\RxNA.fsproj", "{9AB15CDA-5ED2-4A9F-9402-F03BF4A90CBA}"
 EndProject
 Global

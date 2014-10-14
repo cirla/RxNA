@@ -5,9 +5,19 @@ open Microsoft.Xna.Framework.Graphics
 
 open System.Reactive.Subjects
 
+type TextureMap = Map<string, Texture2D>
+
+type RenderResources = {
+    graphics: GraphicsDevice;
+    spriteBatch: SpriteBatch;
+    textures: TextureMap }
+
 let renderStream =
-    new Subject<GraphicsDevice>()
+    new Subject<RenderResources>()
  
-let render (graphics:GraphicsDevice) =
-    graphics.Clear(Color.CornflowerBlue)
-    renderStream.OnNext(graphics)
+let render (res:RenderResources) =
+    res.graphics.Clear(Color.CornflowerBlue)
+
+    res.spriteBatch.Begin()
+    renderStream.OnNext(res)
+    res.spriteBatch.End()

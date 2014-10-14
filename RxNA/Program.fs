@@ -5,3 +5,4 @@ let main argv =
     use g = new Game()
     g.Run ()
     0
+
