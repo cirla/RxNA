@@ -25,11 +25,14 @@ type Game () as this =
         Player.playerInit
         |> ignore
 
+        this.IsMouseVisible <- true
+        Input.mouseClickStream Input.MouseButton.LeftButton
+        |> Observable.add ( fun x -> printfn "%A" x )
+
         Input.keyDownStream
-        |> Observable.subscribe
+        |> Observable.add
             (function | Keys.Escape -> this.Exit()
                       | _ -> ())
-        |> ignore
 
     override this.LoadContent() =
         renderResources <-
@@ -38,6 +41,7 @@ type Game () as this =
               textures = Map.empty.Add("player_spritesheet", contentManager.Load<Texture2D>("Sprites/player_spritesheet")) }
 
     override this.Update gameTime =
+        Input.mouseStateStream.OnNext(Mouse.GetState())
         Input.keyboardStateStream.OnNext(Keyboard.GetState())
         Input.gameTimeStream.OnNext(gameTime)
 

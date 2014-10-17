@@ -61,10 +61,19 @@
     <Reference Include="System.Reactive.PlatformServices">
       <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net40\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="FSharp.Data">
+      <HintPath>..\packages\FSharp.Data.2.0.15\lib\net40\FSharp.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="FSharp.Control.Reactive">
+      <HintPath>..\packages\FSharp.Control.Reactive.2.4.0\lib\net40\FSharp.Control.Reactive.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Input.fs" />
+    <Compile Include="Control.fs">
+    </Compile>
     <Compile Include="Renderer.fs" />
     <Compile Include="Player.fs" />
     <Compile Include="Game.fs" />
